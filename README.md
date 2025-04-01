@@ -20,8 +20,10 @@ docker build -t comfyui-cpu .
 ### 3. Run the Container
 Start ComfyUI with:
 ```aiignore
-docker run -it --rm -p 8188:8188 --name comfyui -v /path/to/your/models:/opt/ComfyUI/models comfyui-cpu
-docker run -it --rm -p 8188:8188 --name comfyui comfyui-cpu
+docker run -it --rm -p 8188:8188 --name comfyui \
+  -v /path/to/your/models:/home/ComfyUI/models \
+  -v /path/to/your/custom_nodes:/home/ComfyUI/custom_nodes \
+  comfyui-cpu
 ```
 
 ### 4. Access ComfyUI
